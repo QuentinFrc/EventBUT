@@ -1,24 +1,25 @@
-let eventBut = new EventBut();
-
-eventBut.on("drag", ()=> {
-    console.log("test");
-})
-
-eventBut.trigger("dragend", "data");
-
-class MyClass {
+class NeedToThrowEvent{
     constructor(el) {
-        el.addEventListener('drag', (e) => {
-            e.preventDefault();
-            e.trigger('drag', null)
-        });
-        el.addEventListener('dragstart', (e) => {
-            e.preventDefault();
-            e.trigger('dragstart', null)
-        });
-        el.addEventListener('dragend', (e) => {
-            e.preventDefault();
-            e.trigger('dragend', null)
-        });
+        this.el = el;
+        this.eventBut = EventBut();
+        this.click = 0;
+
+        let customListener = this.eventBut.bind('clické', (param) =>  {param.preventDefault();console.log(param);}) //Replace click on element by console.log(event)
+
+        this.el.addEventListener('click', (defaultEvent) =>
+        {
+            this.eventBut.trigger('clické', defaultEvent);
+            this.click++;
+            if(this.click == 2) {
+                console.log("unbind");
+                this.eventBut.unbind('clické', customListener);
+            }
+        }); //redirect default click event to custom click event
     }
 }
+
+function DomReady() {
+    let demo = new NeedToThrowEvent(document.querySelector("#demo"));
+}
+
+document.addEventListener("DOMContentLoaded", DomReady);

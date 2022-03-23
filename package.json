@@ -1,0 +1,25 @@
+{
+  "name": "eventbut",
+  "version": "1.0.0",
+  "description": "Library to Bind / Unbind handler on event & Trigger event ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuentinFrc/EventBUT.git"
+  },
+  "author": "QuentinFrc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QuentinFrc/EventBUT/issues"
+  },
+  "homepage": "https://github.com/QuentinFrc/EventBUT#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  }
+}
