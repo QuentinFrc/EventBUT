@@ -11,7 +11,6 @@ class NeedToThrowEvent{
             this.eventBut.trigger('clické', defaultEvent);
             this.click++;
             if(this.click == 2) {
-                console.log("unbind");
                 this.eventBut.unbind('clické', customListener);
             }
         }); //redirect default click event to custom click event
